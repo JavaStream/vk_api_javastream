@@ -18,7 +18,7 @@ QUICK START
 ```xml
 <repositories>
    <repository>
-      <id>bitrix24-java-api-mvn-repo</id>
+      <id>vk_api_javastream-mvn-repo</id>
 	  <url>https://raw.github.com/JavaStream/vk_api_javastream/mvn-repo/</url>
 		 <snapshots>
 		     <enabled>true</enabled>
