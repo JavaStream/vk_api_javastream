@@ -8,8 +8,10 @@ If you have any questions send me an email: javastream.msn@gmail.com
 QUICK START
 ------------
 
-## Get an access token and ID group in your group settings.
+## Get an ID group in your group settings
 ![Screenshot](screen_1.jpg)
+
+## Create access token 
 ![Screenshot](screen_2.jpg)
 
 ## Download our librari
@@ -49,7 +51,7 @@ public class TestConnect {
 }
 ```
 
-## Create your service for processing messages form VK
+## Create your service for processing messages from VK
 See example in the `folder` examples in class `UpdateProcessService`
 ```java
 @Component
