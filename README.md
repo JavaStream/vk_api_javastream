@@ -11,7 +11,7 @@ QUICK START
 ## Get an ID group in your group settings
 ![Screenshot](screen_1.jpg)
 
-## Create access token 
+## Create an access token 
 ![Screenshot](screen_2.jpg)
 
 ## Download our librari
