@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.javastream</groupId>
     <artifactId>vk_api_javastream</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
     <name>vk_api_javastream</name>
     <description>Java API for VK.COM from JavaStream</description>
 
@@ -59,16 +59,6 @@
         </dependency>
     </dependencies>
 
-    <!--
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-    -->
 
     <build>
         <plugins>
