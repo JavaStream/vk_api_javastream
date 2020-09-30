@@ -35,7 +35,7 @@ QUICK START
   ```
 
 ## Create connection and start updates with VK Server
-Create Spring boot project. See example in the folder `examples` in the class `TestConnect`
+Create Spring boot project and 2 classes. See example in the folder `examples`. First class is the `TestConnect`
 ```java
 @Component
 public class TestConnect {
@@ -69,7 +69,7 @@ public class TestConnect {
 ```
 
 ## Create your service for processing messages from VK
-See example in the `folder` examples in class `UpdateProcessService`
+Second class in the `folder` is the `UpdateProcessService`. He is responsible for processing incoming messages.
 ```java
 @Component
 public class UpdateProcessService {
