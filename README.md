@@ -14,8 +14,25 @@ QUICK START
 ## Create an access token 
 ![Screenshot](screen_2.jpg)
 
-## Download our librari
-![Screenshot](screen_3.jpg)
+## Add Maven dependency:
+```xml
+<repositories>
+   <repository>
+      <id>bitrix24-java-api-mvn-repo</id>
+	  <url>https://raw.github.com/JavaStream/vk_api_javastream/mvn-repo/</url>
+		 <snapshots>
+		     <enabled>true</enabled>
+			  <updatePolicy>always</updatePolicy>
+		 </snapshots>
+   </repository>
+</repositories>
+
+<dependency>
+    <groupId>com.javastream</groupId>
+    <artifactId>vk_api_javastream</artifactId>
+    <version>0.1-SNAPSHOT</version>
+ </dependency>
+  ```
 
 ## Create connection and start updates with VK Server
 Create Spring boot project. See example in the folder `examples` in the class `TestConnect`
