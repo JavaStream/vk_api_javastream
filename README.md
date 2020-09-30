@@ -34,7 +34,7 @@ public class TestConnect {
 
         // We say that we are interested in working with messages in a group
         messageHandler = message -> {
-            // Our service, where we send a message for processing
+            // Our service where we processing a message 
             updateProcessService.process(message);
             return message;
         };
