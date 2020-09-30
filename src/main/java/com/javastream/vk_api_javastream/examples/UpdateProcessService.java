@@ -25,5 +25,4 @@ public class UpdateProcessService {
         if (message.getText().contains("Goodbye")) {
             vk_starter.getVkMessenger().sendMessage("Goodbye my friend!", message);        }
     }
-
 }
