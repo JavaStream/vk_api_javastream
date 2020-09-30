@@ -74,8 +74,6 @@ See example in the `folder` examples in class `UpdateProcessService`
 @Component
 public class UpdateProcessService {
 
-    @Autowired private Vk_Starter vk_starter;
-
     // The main method of processing updates
     public void process(VkStarter vkStarter, Message message) throws ClientException {
         // If we received a message "Hello", then we reply "Hello my friend!"
