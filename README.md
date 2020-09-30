@@ -1,5 +1,5 @@
 # VK API Provider from JavaStream
-Java library for VK API. **Easy to install and use! ** 
+Java library for VK API. Easy to install and use! 
 
 You can easy communicate with VK group messages. Other features coming soon!
 
