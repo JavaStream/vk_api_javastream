@@ -19,7 +19,7 @@ public class TestConnect {
     private MessageHandler messageHandler = null;
 
     private void start() {
-        Client client = new Client(170690651, "bbb072f080b094e1c47248b5c694187497714f55e6296e35c253833cb0266316847d0b6273500aefb6fff");
+        Client client = new Client(170690651, "bbb072f080b094e1c47248b5c694187497714f55e6296e35c253833cb0266316847d0b6273500aefb6ff");
         Vk_Starter vk_starter = client.initVkService();
 
         // Работа с сообщениями в группе
