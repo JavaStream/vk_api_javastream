@@ -18,7 +18,7 @@ QUICK START
 ![Screenshot](screen_3.jpg)
 
 ## Create connection and start updates with VK Server
-Create Spring boot project. See example in the `folder` examples in class `TestConnect`
+Create Spring boot project. See example in the folder `examples` in the class `TestConnect`
 ```java
 @Component
 public class TestConnect {
