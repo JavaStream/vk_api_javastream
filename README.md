@@ -86,7 +86,6 @@ public class UpdateProcessService {
             vkStarter.getVkMessenger().sendMessage("Goodbye my friend!", message);        }
         }
        
-    }
 }
 ```
 
