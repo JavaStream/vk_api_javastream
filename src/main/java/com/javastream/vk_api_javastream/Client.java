@@ -13,8 +13,8 @@ public class Client {
         Settings.groupID = groupID;
     }
 
-    public Vk_Starter initVkService() {
-        return new Vk_Starter();
+    public VkStarter initVkService() {
+        return new VkStarter();
     }
 
 }

@@ -1,7 +1,7 @@
 package com.javastream.vk_api_javastream.examples;
 
 import com.javastream.vk_api_javastream.Client;
-import com.javastream.vk_api_javastream.Vk_Starter;
+import com.javastream.vk_api_javastream.VkStarter;
 import com.javastream.vk_api_javastream.handlers.MessageHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,16 +19,16 @@ public class TestConnect {
     private MessageHandler messageHandler = null;
 
     private void start() {
-        Client client = new Client(170690651, "bbb072f080b094e1c47248b5c694187497714f55e6296e35c253833cb0266316847d0b6273500aefb6ff");
-        Vk_Starter vk_starter = client.initVkService();
+        Client client = new Client(170690651, "bbb072f080b094e1c47248b5c694187497714f55e6296e35c253833cb0266316847d0b6273500aefb6fff");
+        VkStarter vkStarter = client.initVkService();
 
         // Работа с сообщениями в группе
         messageHandler = message -> {
-            updateProcessService.process(message);
+            updateProcessService.process(vkStarter, message);
             return message;
         };
 
-        vk_starter.startUpdates(messageHandler);
+        vkStarter.startUpdates(messageHandler);
     }
 
 

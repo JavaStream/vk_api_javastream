@@ -16,8 +16,7 @@ import org.springframework.stereotype.Component;
  * @author JavaStream on 30.09.2020
  */
 
-@Component
-public class Vk_Starter {
+public class VkStarter {
 
     private static VkApiClient vkApiClient;
     private static GroupActor groupActor;
