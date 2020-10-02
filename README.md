@@ -48,11 +48,12 @@ public class TestConnect {
         // Setup your id group and access token
         Client client = new Client(170690651, "bbb072f080b094e1c47248b5c694187497714f55e6296e35c253833cb0266316847d0b6273500aefb6fff");
         VkStarter vkStarter = client.initVkService();
+        VkMessenger vkMessenger = client.getVkMessanger(vkStarter);
 
         // We say that we are interested in working with messages in a group
         messageHandler = message -> {
             // Our service where we processing a message 
-            updateProcessService.process(vkStarter, message);
+            updateProcessService.process(vkMessenger, message);
             return message;
         };
 
@@ -75,16 +76,16 @@ Second class in the `folder` is the `UpdateProcessService`. He is responsible fo
 public class UpdateProcessService {
 
     // The main method of processing updates
-    public void process(VkStarter vkStarter, Message message) throws ClientException {
-        // If we received a message "Hello", then we reply "Hello my friend!"
+    public void process(VkMessenger vkMessenger, Message message) throws ClientException {        // If we received a message "Hello", then we reply "Hello my friend!"
         if (message.getText().contains("Hello")) {
-            vkStarter.getVkMessenger().sendMessage("Hello my friend!", message);
+            vkMessenger.sendMessage("Hello my friend!", message);
         }
 
         // If we received a message "Goodbye", then we reply "Goodbye my friend!"
         if (message.getText().contains("Goodbye")) {
-            vkStarter.getVkMessenger().sendMessage("Goodbye my friend!", message);        }
+            vkMessenger.sendMessage("Goodbye my friend!", message);      
         }
+    }
        
 }
 ```

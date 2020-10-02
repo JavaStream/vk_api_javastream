@@ -20,15 +20,18 @@ public class VkStarter {
     private static VkApiClient vkApiClient;
     private static GroupActor groupActor;
     public MessageHandler messageHandler = null;
-    private static VkMessenger vkMessenger;
+    public VkMessenger vkMessenger;
     private final TransportClient transportClient = new HttpTransportClient();
 
-    public void startUpdates(MessageHandler messageHandler) {
-        this.messageHandler = messageHandler;
+    public VkStarter() {
         groupActor = init();
         vkMessenger = new VkMessenger();
         vkMessenger.setGroupActor(groupActor);
         vkMessenger.setVkApiClient(vkApiClient);
+    }
+
+    public void startUpdates(MessageHandler messageHandler) {
+        this.messageHandler = messageHandler;
 
         try {
             if (!vkApiClient.groups().getLongPollSettings(groupActor, groupActor.getGroupId()).execute().getIsEnabled()) {

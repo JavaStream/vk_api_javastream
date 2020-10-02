@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
  * @author JavaStream on 30.09.2020
  */
 
-@Component
 public class VkMessenger {
     private GroupActor groupActor;
     private VkApiClient vkApiClient;
@@ -19,6 +18,26 @@ public class VkMessenger {
     }
 
     public void sendMessage(String text, Message message) throws ClientException {
+        if (message == null) return;
+        vkApiClient.messages()
+                .send(groupActor)
+                .peerId(message.getPeerId())
+                .message(text)
+                .randomId((int) (Math.random() * 2048))
+                .executeAsRaw();
+    }
+
+    public void sendMessage(String text, Integer peerId) throws ClientException {
+        if (text == null || peerId == null) return;
+        vkApiClient.messages()
+                .send(groupActor)
+                .peerId(peerId)
+                .message(text)
+                .randomId((int) (Math.random() * 2048))
+                .executeAsRaw();
+    }
+
+    public void sendPhotoMessage(String text, Message message) throws ClientException {
         if (message == null) return;
         vkApiClient.messages()
                 .send(groupActor)

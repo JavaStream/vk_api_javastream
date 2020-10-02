@@ -1,6 +1,7 @@
 package com.javastream.vk_api_javastream.examples;
 
 import com.javastream.vk_api_javastream.VkStarter;
+import com.javastream.vk_api_javastream.messanger.VkMessenger;
 import com.javastream.vk_api_javastream.model.Attachment;
 import com.javastream.vk_api_javastream.utils.Util;
 import com.vk.api.sdk.exceptions.ClientException;
@@ -20,7 +21,7 @@ import java.util.List;
 public class UpdateProcessService {
 
     // The main method of processing updates
-    public void process(VkStarter vkStarter, Message message) throws ClientException {
+    public void process(VkMessenger vkMessenger, Message message) throws ClientException {
 
         // Attachment check
         if (Util.hasAttachments(message)) { System.out.println("has Attachments"); }
@@ -48,12 +49,17 @@ public class UpdateProcessService {
 
 
 
-
         if (message.getText().contains("Hello")) {
-            vkStarter.getVkMessenger().sendMessage("Hello my friend!", message);
+            vkMessenger.sendMessage("Hello my friend!", message);
         }
 
         if (message.getText().contains("Goodbye")) {
-            vkStarter.getVkMessenger().sendMessage("Goodbye my friend!", message);        }
+            int fromId = message.getFromId();
+            vkMessenger.sendMessage("Goodbye my friend!", fromId);
+        }
+
+        if (message.getText().contains("photo")) {
+            vkMessenger.sendPhotoMessage("Goodbye my friend!", message);
+        }
     }
 }
