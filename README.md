@@ -30,7 +30,7 @@ QUICK START
 <dependency>
     <groupId>com.javastream</groupId>
     <artifactId>vk_api_javastream</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.3-SNAPSHOT</version>
  </dependency>
   ```
 

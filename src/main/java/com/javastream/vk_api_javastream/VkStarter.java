@@ -10,7 +10,6 @@ import com.vk.api.sdk.client.actors.GroupActor;
 import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.httpclient.HttpTransportClient;
-import org.springframework.stereotype.Component;
 
 /**
  * @author JavaStream on 30.09.2020
@@ -38,9 +37,8 @@ public class VkStarter {
 
 
             CallbackApiLongPollHandler handler = new CallbackApiLongPollHandler(vkApiClient, groupActor, messageHandler);
-            System.out.println("startUpdates()");
             handler.run();
-        } catch (ClientException | ApiException e) {
+        } catch (ClientException | ApiException ex ) {
             System.out.println("Restart connection to VK API..");
             startUpdates(messageHandler);
         }
@@ -50,7 +48,6 @@ public class VkStarter {
     public GroupActor init() {
         int groupID = getGroupID();
         String accessToken = getAccessToken();
-        System.out.println("init()");
 
         vkApiClient = new VkApiClient(this.transportClient);
         return new GroupActor(groupID, accessToken);
