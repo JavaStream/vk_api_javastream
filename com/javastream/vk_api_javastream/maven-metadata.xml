@@ -4,8 +4,8 @@
   <artifactId>vk_api_javastream</artifactId>
   <versioning>
     <versions>
-      <version>0.2-SNAPSHOT</version>
+      <version>0.3-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20200930120731</lastUpdated>
+    <lastUpdated>20201002085539</lastUpdated>
   </versioning>
 </metadata>

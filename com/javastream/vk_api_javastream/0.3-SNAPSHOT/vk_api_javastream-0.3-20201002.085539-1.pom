@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.javastream</groupId>
     <artifactId>vk_api_javastream</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.3-SNAPSHOT</version>
     <name>vk_api_javastream</name>
     <description>Java API for VK.COM from JavaStream</description>
 
