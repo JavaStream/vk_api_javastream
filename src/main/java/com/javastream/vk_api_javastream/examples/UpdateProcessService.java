@@ -1,16 +1,14 @@
 package com.javastream.vk_api_javastream.examples;
 
-import com.javastream.vk_api_javastream.VkStarter;
 import com.javastream.vk_api_javastream.messanger.VkMessenger;
-import com.javastream.vk_api_javastream.model.Attachment;
 import com.javastream.vk_api_javastream.utils.Util;
+import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.objects.messages.Message;
-import com.vk.api.sdk.objects.messages.MessageAttachment;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * @author JavaStream on 30.09.2020
@@ -21,9 +19,26 @@ import java.util.List;
 public class UpdateProcessService {
 
     // The main method of processing updates
-    public void process(VkMessenger vkMessenger, Message message) throws ClientException {
+    public void process(VkMessenger vkMessenger, Message message) throws ClientException, ApiException, IOException {
 
-        // Attachment check
+        //  I. SENDING TEXT MESSAGES
+
+        // Send e text message to user (first way)
+        if (message.getText().contains("Hello")) {
+            vkMessenger.sendMessage("Hello my friend!", message);
+        }
+
+        // Send e text message to user (second way)
+        if (message.getText().contains("Goodbye")) {
+            int fromId = message.getFromId();
+            vkMessenger.sendMessage("Goodbye my friend!", fromId);
+        }
+
+
+
+        //  II. CHECK SERVICE
+
+        // Attachments check
         if (Util.hasAttachments(message)) { System.out.println("has Attachments"); }
 
         // Photo check
@@ -35,7 +50,7 @@ public class UpdateProcessService {
         // Audio check
         if (Util.hasAudio(message)) { System.out.println("has Audio");  }
 
-        // Audio Message check
+        // Audio Records check
         if (Util.hasAudioMessage(message)) { System.out.println("has Audio Message");  }
 
         // Document check
@@ -49,17 +64,11 @@ public class UpdateProcessService {
 
 
 
-        if (message.getText().contains("Hello")) {
-            vkMessenger.sendMessage("Hello my friend!", message);
-        }
-
-        if (message.getText().contains("Goodbye")) {
-            int fromId = message.getFromId();
-            vkMessenger.sendMessage("Goodbye my friend!", fromId);
-        }
+        //  III. SENDING PHOTO MESSAGE (Text is optional and can be null)
 
         if (message.getText().contains("photo")) {
-            vkMessenger.sendPhotoMessage("Goodbye my friend!", message);
+            File file = new File("D:\\1.jpg");
+            vkMessenger.sendPhotoMessage("Hay, this is my first photo for you", file, message);
         }
     }
 }

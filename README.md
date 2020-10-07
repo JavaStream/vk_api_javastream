@@ -30,7 +30,7 @@ QUICK START
 <dependency>
     <groupId>com.javastream</groupId>
     <artifactId>vk_api_javastream</artifactId>
-    <version>0.3-SNAPSHOT</version>
+    <version>0.4-SNAPSHOT</version>
  </dependency>
   ```
 
@@ -46,7 +46,10 @@ public class TestConnect {
 
     private void start() {
         // Setup your id group and access token
-        Client client = new Client(170690651, "bbb072f080b094e1c47248b5c694187497714f55e6296e35c253833cb0266316847d0b6273500aefb6fff");
+        int groupId = 170690651;
+        String accessToken = "bbb072f080b094e1c47248b5c694187497714f55e6296e35c253833cb0266316847d0b6273500aefb6fff";
+        
+        Client client = new Client(groupId, accessToken);        
         VkStarter vkStarter = client.initVkService();
         VkMessenger vkMessenger = client.getVkMessanger(vkStarter);
 
@@ -77,6 +80,9 @@ public class UpdateProcessService {
 
     // The main method of processing updates
     public void process(VkMessenger vkMessenger, Message message) throws ClientException {        // If we received a message "Hello", then we reply "Hello my friend!"
+        
+        //  I. SENDING TEXT MESSAGES   
+
         if (message.getText().contains("Hello")) {
             vkMessenger.sendMessage("Hello my friend!", message);
         }
@@ -85,6 +91,43 @@ public class UpdateProcessService {
         if (message.getText().contains("Goodbye")) {
             vkMessenger.sendMessage("Goodbye my friend!", message);      
         }
+
+
+        //  II. CHECK SERVICE  
+        
+        // Attachments check 
+        if (Util.hasAttachments(message)) { System.out.println("has Attachments"); }
+
+        // Photo check
+        if (Util.hasPhoto(message)) { System.out.println("has Photo");  }
+
+        // Video check
+        if (Util.hasVideo(message)) { System.out.println("has Video");  }
+
+        // Audio check
+        if (Util.hasAudio(message)) { System.out.println("has Audio");  }
+
+        // Audio Records check
+        if (Util.hasAudioMessage(message)) { System.out.println("has Audio Message");  }
+
+        // Document check
+        if (Util.hasDocument(message)) { System.out.println("has Document");  }
+
+        // Link check
+        if (Util.hasLink(message)) { System.out.println("has Link");  }
+
+        // Text check
+        if (Util.hasText(message)) { System.out.println("has Text");  }
+
+
+
+        //  III. SENDING PHOTO MESSAGE (Text is optional and can be null) 
+
+        if (message.getText().contains("photo")) {
+            File file = new File("D:\\1.jpg");
+            vkMessenger.sendPhotoMessage("Hay, this is my first photo for you", file, message);
+        }
+
     }
        
 }

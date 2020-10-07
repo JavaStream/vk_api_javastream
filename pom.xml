@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.javastream</groupId>
     <artifactId>vk_api_javastream</artifactId>
-    <version>0.3-SNAPSHOT</version>
+    <version>0.4-SNAPSHOT</version>
     <name>vk_api_javastream</name>
     <description>Java API for VK.COM from JavaStream</description>
 
@@ -38,6 +38,26 @@
             <groupId>com.vk.api</groupId>
             <artifactId>sdk</artifactId>
             <version>1.0.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.12</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>4.5.12</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20190722</version>
         </dependency>
 
         <dependency>
